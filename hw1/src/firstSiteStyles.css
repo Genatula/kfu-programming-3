@@ -1,0 +1,139 @@
+@font-face {
+  font-family: Anton;
+  src: url('Anton-Regular.ttf');
+}
+
+@font-face {
+  font-family: Oswald;
+  src: url('Oswald-VariableFont_wght.ttf');
+}
+
+body {
+  background-color: black;
+  font-family: Anton, sans-serif;
+  padding-top: 4%
+}
+
+p {
+  font-family: Oswald, sans-serif;
+  text-align: justify;
+  text-indent: 10px;
+}
+
+.contentWrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: stretch;
+  margin-top: 10px;
+  background-color: white;
+}
+
+header {
+  display: flex;
+  height: 10%;
+  position: fixed;
+  top: 0;
+  background-color: black;
+  width: 100%;
+}
+
+.logo {
+  width: 80%;
+}
+
+.content {
+  width: 80%;
+  border-right: thick solid black;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+footer {
+  display: flex;
+  color: white;
+  padding-top: 5px;
+  padding-left: 10px;
+  justify-content: flex-start;
+}
+
+.logo img {
+  box-sizing: border-box;
+}
+
+#logo {
+  padding-top: 10px;
+  padding-left: 50px;
+  padding-bottom: 10px;
+}
+
+.socials {
+  display: flex;
+  padding-left: 8px;
+  width: 20%;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+img.social {
+  box-sizing: border-box;
+  width: 25%;
+  height: 55%;
+}
+
+.socialLink {
+  text-align: center;
+}
+
+.navbar{
+  width: 20%;
+  padding-left: 10px;
+}
+
+img.inTextImg {
+  width: 75%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+p.alt {
+  font-size: 0.8rem;
+  color: #3d3d3d;
+  text-align: center;
+}
+
+footer div {
+  display: flex;
+  align-items: center;
+}
+
+footer div:first-child {
+  margin-left: 1em;
+}
+
+.footNav {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
+  list-style: none;
+}
+
+.footNav li {
+  padding: 1em;
+}
+
+.nav {
+  list-style: none;
+  position: fixed;
+}
+
+
+li ul {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
