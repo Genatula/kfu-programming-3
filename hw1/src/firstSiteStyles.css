@@ -8,10 +8,19 @@
   src: url('Oswald-VariableFont_wght.ttf');
 }
 
+@media screen and (max-width: 1024px) {
+  div.navbar {
+    display: none;
+  }
+
+  div.content {
+    width: 100%;
+  }
+}
+
 body {
   background-color: black;
   font-family: Anton, sans-serif;
-  padding-top: 4%
 }
 
 p {
@@ -24,21 +33,22 @@ p {
   display: flex;
   justify-content: space-around;
   align-items: stretch;
-  margin-top: 10px;
   background-color: white;
 }
 
 header {
   display: flex;
   height: 10%;
-  position: fixed;
-  top: 0;
+  /* position: fixed;
+  top: 0; */
+  max-height: 70px;
   background-color: black;
   width: 100%;
 }
 
 .logo {
-  width: 80%;
+  width: 20%;
+  max-height: 70px;
 }
 
 .content {
@@ -58,12 +68,15 @@ footer {
 
 .logo img {
   box-sizing: border-box;
+  /* width: 50%;
+  height: 20%; */
 }
 
 #logo {
   padding-top: 10px;
   padding-left: 50px;
   padding-bottom: 10px;
+  max-width: 85px;
 }
 
 .socials {
@@ -76,8 +89,7 @@ footer {
 
 img.social {
   box-sizing: border-box;
-  width: 25%;
-  height: 55%;
+  max-width: 35px;
 }
 
 .socialLink {
@@ -126,6 +138,8 @@ footer div:first-child {
 .nav {
   list-style: none;
   position: fixed;
+  padding-right: 1rem;
+  font-size: 1rem;
 }
 
 
@@ -136,4 +150,17 @@ li ul {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+.head-nav {
+  color: white;
+  width: 60%;
+}
+
+.head-nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  align-self: stretch;
+  padding-top: 0.6rem;
 }
