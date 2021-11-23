@@ -4,14 +4,15 @@ import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import ru.kpfu.itis.genatulin.hw2.entities.User;
-import ru.kpfu.itis.genatulin.hw2.storage.AbstractStorage;
-import ru.kpfu.itis.genatulin.hw2.storage.UserAlreadyExistsException;
-import ru.kpfu.itis.genatulin.hw2.storage.UsersStorage;
+import ru.kpfu.itis.genatulin.hw2.repositories.AbstractRepository;
+import ru.kpfu.itis.genatulin.hw2.exceptions.UserAlreadyExistsException;
+import ru.kpfu.itis.genatulin.hw2.repositories.UsersRepository;
 import ru.kpfu.itis.genatulin.hw2.validators.AbstractValidator;
 import ru.kpfu.itis.genatulin.hw2.validators.EmailValidator;
 import ru.kpfu.itis.genatulin.hw2.validators.PasswordValidator;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 @WebServlet(name = "SignUpServlet", value = "/signup")
 public class SignUpServlet extends HttpServlet {
@@ -50,16 +51,25 @@ public class SignUpServlet extends HttpServlet {
                     request.getServletContext().getRequestDispatcher("/WEB-INF/jsp/signup.jsp").forward(request, response);
                 }
                 else {
-                    String filename = request.getServletContext().getRealPath("/WEB-INF/users.json");
-                    AbstractStorage<User> usersStorage = new UsersStorage(filename);
+                    AbstractRepository<User> repository = null;
+                    try {
+                        repository = UsersRepository.getInstance();
+                    } catch (SQLException e) {
+                        request.getServletContext().getRequestDispatcher("/WEB-INF/jsp/signup.jsp").forward(request, response);
+                        e.printStackTrace();
+                    } catch (ClassNotFoundException e) {
+                        request.getServletContext().getRequestDispatcher("/WEB-INF/jsp/signup.jsp").forward(request, response);
+                        e.printStackTrace();
+                    }
                     User user = new User(username, email, password);
                     try {
-                        usersStorage.save(user);
+                        repository.saveEntry(user);
                         response.sendRedirect(request.getContextPath() + "/calculator");
-                    }
-                    catch (UserAlreadyExistsException exception) {
+                    } catch (UserAlreadyExistsException exception) {
                         request.setAttribute("userAlreadyExists", true);
-                        request.getServletContext().getRequestDispatcher("/WEB-INF/jsp/signup.jsp");
+                        request.getServletContext().getRequestDispatcher("/WEB-INF/jsp/signup.jsp").forward(request, response);
+                    } catch (SQLException exception) {
+                        request.getServletContext().getRequestDispatcher("/WEB-INF/jsp/signup.jsp").forward(request, response);
                     }
                 }
             }

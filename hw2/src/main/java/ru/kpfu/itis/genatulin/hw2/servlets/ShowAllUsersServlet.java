@@ -4,24 +4,35 @@ import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import ru.kpfu.itis.genatulin.hw2.entities.User;
-import ru.kpfu.itis.genatulin.hw2.storage.AbstractStorage;
-import ru.kpfu.itis.genatulin.hw2.storage.UsersStorage;
+import ru.kpfu.itis.genatulin.hw2.repositories.AbstractRepository;
+import ru.kpfu.itis.genatulin.hw2.repositories.UsersRepository;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 @WebServlet(name = "ShowAllUsersServlet", value = "/all")
 public class ShowAllUsersServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String filename = request.getServletContext().getRealPath("/WEB-INF/users.json");
-        AbstractStorage<User> storage = new UsersStorage(filename);
-
-        if (storage.getAll() == null) {
-            request.setAttribute("noUsersExist", true);
+        AbstractRepository<User> repository = null;
+        try {
+            repository = UsersRepository.getInstance();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
         }
-        else {
-            request.setAttribute("noUsersExist", false);
-            request.setAttribute("users", storage.getAll());
+
+        try {
+            if (repository.getAllEntries() == null) {
+                request.setAttribute("noUsersExist", true);
+            }
+            else {
+                request.setAttribute("noUsersExist", false);
+                request.setAttribute("users", repository.getAllEntries());
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
 
         request.getServletContext().getRequestDispatcher("/WEB-INF/jsp/all.jsp").forward(request, response);
