@@ -5,6 +5,6 @@ public class ClientMain {
         IWebClient webClient = new WebClient("127.0.0.1");
         webClient.setMethod(Method.GET);
         webClient.sendRequest();
-        System.out.println(webClient.getResponse());
+//        System.out.println(webClient.getResponse());
     }
 }
