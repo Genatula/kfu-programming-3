@@ -2,9 +2,10 @@ package ru.kpfu.itis.genatulin.genatulin;
 
 import ru.kpfu.itis.genatulin.genatulin.buttons.FacePart;
 import ru.kpfu.itis.genatulin.genatulin.buttons.FacePartSwitchButton;
+import ru.kpfu.itis.genatulin.genatulin.menuItems.AboutItem;
+import ru.kpfu.itis.genatulin.genatulin.menuItems.ExitItem;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 import java.util.Locale;
 
@@ -94,12 +95,12 @@ public class AppFrame extends JFrame {
 
         JMenu fileMenu = new JMenu("File");
         JMenuItem newPhotoItem = new JMenuItem("New photo");
-        JMenuItem exitItem = new JMenuItem("Exit");
+        ExitItem exitItem = new ExitItem(this);
         fileMenu.add(newPhotoItem);
         fileMenu.add(exitItem);
 
         JMenu aboutMenu = new JMenu("About");
-        JMenuItem aboutItem = new JMenuItem("About");
+        AboutItem aboutItem = new AboutItem(this);
         aboutMenu.add(aboutItem);
 
         menuBar.add(fileMenu);
