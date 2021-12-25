@@ -98,7 +98,6 @@ public class AppFrame extends JFrame {
     private void initLabel() {
         this.label.setOpaque(true);
         this.label.setMinimumSize(new Dimension(700, 980));
-        this.label
         this.container.add(label, BorderLayout.WEST);
     }
 
