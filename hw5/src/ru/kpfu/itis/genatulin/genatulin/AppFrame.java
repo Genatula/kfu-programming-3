@@ -56,8 +56,8 @@ public class AppFrame extends JFrame {
             panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
 
             JLabel label = new JLabel("Change " + facePart.toString().toLowerCase(Locale.ROOT) + ":");
-            FacePartSwitchButton backButton = new FacePartSwitchButton(-1, facePart, "Back");
-            FacePartSwitchButton forwardButton = new FacePartSwitchButton(1, facePart, "Next");
+            FacePartSwitchButton backButton = new FacePartSwitchButton(-1, facePart, "Back", this.facePanel);
+            FacePartSwitchButton forwardButton = new FacePartSwitchButton(1, facePart, "Next", this.facePanel);
             label.setBackground(new Color(243, 243, 243));
 
             JPanel labelPanel = new JPanel();

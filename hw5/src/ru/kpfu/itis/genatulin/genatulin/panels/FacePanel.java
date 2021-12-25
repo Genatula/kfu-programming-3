@@ -27,6 +27,20 @@ public class FacePanel extends JPanel {
         }
     }
 
+    public void updateImage(FacePart facePart, int direction) {
+        if (counters.get(facePart) + direction > facePart.getNumber()) {
+            counters.replace(facePart, 1);
+        }
+        else if (counters.get(facePart) + direction < 1) {
+            counters.replace(facePart, facePart.getNumber());
+        }
+        else {
+            counters.replace(facePart, counters.get(facePart) + direction);
+        }
+        revalidate();
+        repaint();
+    }
+
     @Override
     protected void paintComponent(Graphics graphics) {
         super.paintComponent(graphics);
@@ -42,5 +56,5 @@ public class FacePanel extends JPanel {
                 graphics.drawImage(image, facePart.getX(), facePart.getY(), null);
             }
         }
-}
+    }
 }
