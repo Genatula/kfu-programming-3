@@ -30,17 +30,6 @@ public class FacePanel extends JPanel {
     @Override
     protected void paintComponent(Graphics graphics) {
         super.paintComponent(graphics);
-//        FacePart facePart = faceParts[0];
-//        path = facePart.toString().toLowerCase(Locale.ROOT) + "/" + counters.get(facePart).toString() + ".png";
-//        BufferedImage image = null;
-//        try {
-//            image = ImageIO.read(new File(samplePath + path));
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        finally {
-//            graphics.drawImage(image, facePart.getX(), facePart.getY(), null);
-//        }
         for (FacePart facePart: faceParts) {
             path = facePart.toString().toLowerCase(Locale.ROOT) + "/" + counters.get(facePart).toString() + ".png";
             BufferedImage image = null;
