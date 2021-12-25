@@ -27,4 +27,8 @@ public enum FacePart {
     public int getY() {
         return point.y;
     }
+
+    public Point getPoint() {
+        return point;
+    }
 }

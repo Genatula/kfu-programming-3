@@ -5,11 +5,8 @@ import javax.swing.*;
 public class AboutItem extends JMenuItem {
     private static final String name = "About";
 
-    private JFrame frame;
-
     public AboutItem(JFrame frame) {
         super(name);
-        this.frame = frame;
         addListenerToShowDialog(this, frame);
     }
 

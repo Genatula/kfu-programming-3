@@ -11,4 +11,8 @@ public class FacePartSwitchButton extends JButton {
         this.direction = direction;
         this.facePart = facePart;
     }
+
+    public int getDirection() {
+        return direction;
+    }
 }
