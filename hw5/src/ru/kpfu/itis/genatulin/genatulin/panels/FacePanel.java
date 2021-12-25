@@ -17,7 +17,7 @@ public class FacePanel extends JPanel {
     private String path;
 
     private static final FacePart[] faceParts = FacePart.values();
-    private static final String samplePath = "/home/ilnas/Nextcloud/Studying/Programming/kfu-programming-3/hw5/resources/";
+    private static final String samplePath = "hw5/resources/";
 
     public FacePanel() {
         setPreferredSize(new Dimension(650, 500));
