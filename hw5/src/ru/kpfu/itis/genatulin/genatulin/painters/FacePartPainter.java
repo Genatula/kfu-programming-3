@@ -1,4 +1,4 @@
-package ru.kpfu.itis.genatulin.genatulin.painter;
+package ru.kpfu.itis.genatulin.genatulin.painters;
 
 import ru.kpfu.itis.genatulin.genatulin.buttons.FacePart;
 

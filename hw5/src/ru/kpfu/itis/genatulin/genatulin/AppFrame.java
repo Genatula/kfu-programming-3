@@ -4,6 +4,7 @@ import ru.kpfu.itis.genatulin.genatulin.buttons.FacePart;
 import ru.kpfu.itis.genatulin.genatulin.buttons.FacePartSwitchButton;
 import ru.kpfu.itis.genatulin.genatulin.menuItems.AboutItem;
 import ru.kpfu.itis.genatulin.genatulin.menuItems.ExitItem;
+import ru.kpfu.itis.genatulin.genatulin.menuItems.NewFileItem;
 
 import javax.swing.*;
 import java.awt.*;
@@ -94,7 +95,7 @@ public class AppFrame extends JFrame {
         menuBar.setBackground(new Color(255, 255, 255));
 
         JMenu fileMenu = new JMenu("File");
-        JMenuItem newPhotoItem = new JMenuItem("New photo");
+        NewFileItem newPhotoItem = new NewFileItem(label, this);
         ExitItem exitItem = new ExitItem(this);
         fileMenu.add(newPhotoItem);
         fileMenu.add(exitItem);
@@ -114,5 +115,9 @@ public class AppFrame extends JFrame {
         createGUI();
         this.pack();
         this.setVisible(true);
+    }
+
+    public void setInitialized(boolean initialized) {
+        this.initialized = initialized;
     }
 }

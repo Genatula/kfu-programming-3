@@ -11,6 +11,6 @@ public class AboutItem extends JMenuItem {
     }
 
     private void addListenerToShowDialog(AboutItem item, JFrame frame) {
-        item.addActionListener(actionListener -> JOptionPane.showMessageDialog(frame, "This application has been developed by Genatulin Ilnas", "About", JOptionPane.INFORMATION_MESSAGE));
+        item.addActionListener(actionEvent -> JOptionPane.showMessageDialog(frame, "This application has been developed by Genatulin Ilnas", "About", JOptionPane.INFORMATION_MESSAGE));
     }
 }

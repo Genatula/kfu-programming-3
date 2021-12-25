@@ -1,4 +1,4 @@
-package ru.kpfu.itis.genatulin.genatulin.painter;
+package ru.kpfu.itis.genatulin.genatulin.painters;
 
 public abstract class AbstractImagePainter {
     protected String path;

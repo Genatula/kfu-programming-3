@@ -1,4 +1,4 @@
-package ru.kpfu.itis.genatulin.genatulin.painter;
+package ru.kpfu.itis.genatulin.genatulin.painters;
 
 import java.awt.*;
 
