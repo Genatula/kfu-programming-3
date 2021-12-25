@@ -3,10 +3,10 @@ package ru.kpfu.itis.genatulin.genatulin.buttons;
 import java.awt.*;
 
 public enum FacePart {
-    EYES (new Point(0, 0), 6),
-    NOSE(new Point(0, 0), 9),
-    LIPS(new Point(0, 0), 7),
-    HEAD(new Point(0, 0), 7);
+    EYES (new Point(183, 155), 6),
+    NOSE(new Point(280, 200), 9),
+    LIPS(new Point(245, 330), 7),
+    HEAD(new Point(160, 30), 7);
 
     private final Point point;
     private final int number;

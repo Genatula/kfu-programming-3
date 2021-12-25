@@ -5,6 +5,7 @@ import ru.kpfu.itis.genatulin.genatulin.buttons.FacePartSwitchButton;
 import ru.kpfu.itis.genatulin.genatulin.menuItems.AboutItem;
 import ru.kpfu.itis.genatulin.genatulin.menuItems.ExitItem;
 import ru.kpfu.itis.genatulin.genatulin.menuItems.NewFileItem;
+import ru.kpfu.itis.genatulin.genatulin.panels.FacePanel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,7 +17,7 @@ public class AppFrame extends JFrame {
 
     private final Container container;
     private final JMenuBar menuBar;
-    private final JLabel label;
+    private final FacePanel facePanel;
     private final JPanel rightPanel;
 
     private static final String title = "JPhotoRobot";
@@ -27,14 +28,14 @@ public class AppFrame extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         container = this.getContentPane();
         menuBar = new JMenuBar();
-        label = new JLabel();
+        facePanel = new FacePanel();
         rightPanel = new JPanel();
         initialized = false;
     }
 
     public void createGUI() {
         createMenuBar();
-        createLabel();
+        createFacePanel();
         createRightPanel();
     }
 
@@ -83,11 +84,11 @@ public class AppFrame extends JFrame {
         }
     }
 
-    private void createLabel() {
-        label.setOpaque(true);
-        label.setBackground(new Color(243, 243, 243));
-        label.setMinimumSize(new Dimension(350, 500));
-        container.add(label, BorderLayout.WEST);
+    private void createFacePanel() {
+        facePanel.setOpaque(true);
+        facePanel.setBackground(new Color(243, 243, 243));
+        facePanel.setMinimumSize(new Dimension(350, 500));
+        container.add(facePanel, BorderLayout.WEST);
     }
 
     private void createMenuBar() {
@@ -95,7 +96,7 @@ public class AppFrame extends JFrame {
         menuBar.setBackground(new Color(255, 255, 255));
 
         JMenu fileMenu = new JMenu("File");
-        NewFileItem newPhotoItem = new NewFileItem(label, this);
+        NewFileItem newPhotoItem = new NewFileItem(facePanel, this);
         ExitItem exitItem = new ExitItem(this);
         fileMenu.add(newPhotoItem);
         fileMenu.add(exitItem);
@@ -107,7 +108,7 @@ public class AppFrame extends JFrame {
         menuBar.add(fileMenu);
         menuBar.add(aboutMenu);
 
-        menuBar.setPreferredSize(new Dimension(700, 20));
+        menuBar.setPreferredSize(new Dimension(1000, 20));
         this.setJMenuBar(menuBar);
     }
 
