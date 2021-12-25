@@ -45,6 +45,8 @@ public class FacePanel extends JPanel {
         for (FacePart facePart: faceParts) {
             counters.replace(facePart, 1);
         }
+        revalidate();
+        repaint();
     }
 
     @Override
