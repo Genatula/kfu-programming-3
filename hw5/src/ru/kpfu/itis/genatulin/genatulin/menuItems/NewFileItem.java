@@ -1,24 +1,23 @@
 package ru.kpfu.itis.genatulin.genatulin.menuItems;
 
-import ru.kpfu.itis.genatulin.genatulin.AppFrame;
+import ru.kpfu.itis.genatulin.genatulin.panels.FacePanel;
 
 import javax.swing.*;
-import java.awt.*;
 
 public class NewFileItem extends JMenuItem {
 
-    private final AppFrame appFrame;
+    private final FacePanel panel;
 
     private static final String name = "New File...";
 
-    public NewFileItem(Component component, AppFrame appFrame) {
+    public NewFileItem(FacePanel panel) {
         super(name);
-        this.appFrame = appFrame;
-        addInitOnClickListener(this);
+        this.panel = panel;
+        addResetImageToDefaultOnClickListener(this);
     }
 
-    private void addInitOnClickListener(NewFileItem item) {
-
+    private void addResetImageToDefaultOnClickListener(NewFileItem item) {
+        item.addActionListener(actionEvent -> panel.resetImage());
     }
 
 }

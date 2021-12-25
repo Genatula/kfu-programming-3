@@ -96,7 +96,7 @@ public class AppFrame extends JFrame {
         menuBar.setBackground(new Color(255, 255, 255));
 
         JMenu fileMenu = new JMenu("File");
-        NewFileItem newPhotoItem = new NewFileItem(facePanel, this);
+        NewFileItem newPhotoItem = new NewFileItem(facePanel);
         ExitItem exitItem = new ExitItem(this);
         fileMenu.add(newPhotoItem);
         fileMenu.add(exitItem);

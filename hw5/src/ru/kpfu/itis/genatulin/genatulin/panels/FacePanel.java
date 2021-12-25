@@ -41,6 +41,12 @@ public class FacePanel extends JPanel {
         repaint();
     }
 
+    public void resetImage() {
+        for (FacePart facePart: faceParts) {
+            counters.replace(facePart, 1);
+        }
+    }
+
     @Override
     protected void paintComponent(Graphics graphics) {
         super.paintComponent(graphics);
